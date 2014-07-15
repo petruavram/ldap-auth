@@ -1,5 +1,5 @@
 {
-    "name": "petruavram/ldap-auth",
+    "name": "ccovey/ldap-auth",
     "description": "",
     "keywords": ["laravel", "L4", "LDAP", "Authentication", "Laravel 4"],
     "authors": [
