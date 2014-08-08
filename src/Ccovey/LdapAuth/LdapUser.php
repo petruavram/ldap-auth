@@ -26,7 +26,7 @@ class LdapUser implements Auth\UserInterface
 		$username = (Config::has('auth.username_field')) ? Config::get('auth.username_field') : 'username';
 		return $this->attributes[$username];
 	}
-    
+
     /**
 	 * Get the password for the user.
 	 *

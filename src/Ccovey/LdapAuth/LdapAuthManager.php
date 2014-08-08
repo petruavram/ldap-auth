@@ -6,23 +6,23 @@ use Illuminate\Auth\Guard;
 use Illuminate\Auth\AuthManager;
 
 /**
-* 
+*
 */
 class LdapAuthManager extends AuthManager
 {
     /**
-     * 
+     *
      * @return \Config\Packages\Guard
      */
     protected function createLdapDriver()
     {
         $provider = $this->createLdapProvider();
-        
+
         return new Guard($provider, $this->app['session.store']);
     }
-    
+
     /**
-     * 
+     *
      * @return \Config\Packages\LdapUserProvider
      */
     protected function createLdapProvider()
@@ -30,11 +30,11 @@ class LdapAuthManager extends AuthManager
         $ad = new adLDAP($this->getLdapConfig());
 
         $model = null;
-        
+
         if ($this->app['config']['auth.model']) {
             $model = $this->app['config']['auth.model'];
         }
-        
+
         return new LdapAuthUserProvider($ad, $this->getAuthConfig(), $model);
     }
 
@@ -59,7 +59,6 @@ class LdapAuthManager extends AuthManager
 */
 class MissingAuthConfigException extends Exception
 {
-    
     function __construct()
     {
         $message = "Please Ensure a config file is present at app/config/auth.php";
